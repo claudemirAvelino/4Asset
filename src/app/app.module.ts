@@ -4,14 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxMaskModule } from 'ngx-mask'
-//import { UserInterfaceComponent } from './pages/user-interface/user-interface.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UserInterfaceModule } from "./pages/user-interface/user-interface.module";
 
 @NgModule({
   declarations: [
     AppComponent,
-//    UserInterfaceComponent,
     HeaderComponent,
   ],
   imports: [
@@ -22,6 +20,8 @@ import { UserInterfaceModule } from "./pages/user-interface/user-interface.modul
     UserInterfaceModule
   ],
   providers: [],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

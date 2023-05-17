@@ -5,19 +5,21 @@ import { NgxMaskModule } from 'ngx-mask'
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {UserFormComponent} from "../../components/user-form/user-form.component";
 import {PopupComponent} from "../../components/popup/popup.component";
-
+import { ConfirmPopupComponent } from "../../components/confirm-popup/confirm-popup.component";
 
 
 @NgModule({
   exports: [
     UserInterfaceComponent,
     UserFormComponent,
-    PopupComponent
+    PopupComponent,
+    ConfirmPopupComponent
   ],
   declarations: [
     UserInterfaceComponent,
     UserFormComponent,
-    PopupComponent
+    PopupComponent,
+    ConfirmPopupComponent
   ],
   imports: [
     CommonModule,

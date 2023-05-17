@@ -21,11 +21,11 @@
         </thead>
         <tbody>
         <tr *ngFor="let user of users">
-          <td>{{user.name}}</td>
+          <td class="table-spacing-left">{{user.name}}</td>
           <td>{{user.email}}</td>
           <td>{{user.phone}}</td>
           <td>{{user.birthDate | date: 'dd/MM/yyyy'}}</td>
-          <td>
+          <td class="table-spacing-right">
             <span class="icon-action" (click)="edit(user)" uk-icon="icon: pencil" uk-toggle="target: #edit-user-form"></span>
             <span class="icon-action" (click)="delete(user.id)" uk-icon="icon: trash"></span>
           </td>
@@ -57,5 +57,5 @@
 </div>
 
 <div id="delete-confirmation-popup" uk-modal>
-  <popup text="Excluir Cadastro!"></popup>
+  <confirm-popup></confirm-popup>
 </div>

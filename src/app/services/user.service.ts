@@ -35,7 +35,7 @@ export class UsersService {
     );
   }
 
-  delete(id: number): Observable<User> {
+  delete(id: number | null): Observable<User> {
     return this.http.delete<User>(`${this.url}/persons/${id}`).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))

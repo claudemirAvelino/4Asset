@@ -62,3 +62,11 @@
 .user-interface .icon-action {
   cursor: pointer;
 }
+
+.user-interface .table-spacing-left {
+  padding-left: 50px;
+}
+
+.user-interface .table-spacing-right {
+  padding-right: 50px;
+}

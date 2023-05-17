@@ -22,6 +22,10 @@ export class UserFormComponent implements OnInit {
 
   }
 
+  close() {
+    EventService.get('modalClosed').emit('close');
+  }
+
   save() {
     let user = this.formGroup.value;
     user.birthDate = this.formatDate(user.birthDate)
@@ -30,19 +34,14 @@ export class UserFormComponent implements OnInit {
       let userId = user.id;
       delete user.id;
       this.userService.update(user, userId).subscribe(() => {
-        this.finallyAction.next(false)
-        let modal2 = UIkit.modal('#register-popup')
-        modal2.show();
+        EventService.get('modalClosed').emit('edited');
       })
     } else {
       delete user.id;
       this.userService.create(user).subscribe(() => {
-        this.finallyAction.next(false)
-        let modal2 = UIkit.modal('#register-popup')
-        modal2.show();
+        EventService.get('modalClosed').emit('created');
       })
     }
-    this.finallyAction.next(true)
   }
 
   ngOnInit(): void {
@@ -54,7 +53,7 @@ export class UserFormComponent implements OnInit {
         name: this.user.name,
         email: this.user.email,
         phone: this.user.phone,
-        birthDate: this.user.birthDate,
+        birthDate: this.formatBrazilianDate(this.user.birthDate),
       })
     }
   }
@@ -93,5 +92,15 @@ export class UserFormComponent implements OnInit {
     let isoDate = new Date(formatedDate).toISOString();
 
     return isoDate;
+  }
+
+  formatBrazilianDate(isoDate: string) {
+    const date = new Date(isoDate);
+
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+
+    return `${day}/${month}/${year}`;
   }
 }
