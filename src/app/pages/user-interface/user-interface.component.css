@@ -58,3 +58,7 @@
   text-transform: none;
   color: #fff;
 }
+
+.user-interface .icon-action {
+  cursor: pointer;
+}

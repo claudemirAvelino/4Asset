@@ -3,7 +3,7 @@
     <section class="first-container">
       <span class="uk-text-bold user-title">Cadastro de Pessoas</span>
       <div class="uk-margin">
-        <button class="uk-button uk-button-default custom-input uk-text-small" uk-toggle="target: #user-form" type="button">
+        <button class="uk-button uk-button-default custom-input uk-text-small" uk-toggle="target: #create-user-form" type="button">
           Novo Cadastro
           <span uk-icon="icon: arrow-right; ratio: 2"></span>
         </button>
@@ -26,8 +26,8 @@
           <td>{{user.phone}}</td>
           <td>{{user.birthDate | date: 'dd/MM/yyyy'}}</td>
           <td>
-            <span (click)="edit(user)" uk-icon="icon: pencil"></span>
-            <span (click)="delete(user.id)" uk-icon="icon: trash"></span>
+            <span class="icon-action" (click)="edit(user)" uk-icon="icon: pencil" uk-toggle="target: #edit-user-form"></span>
+            <span class="icon-action" (click)="delete(user.id)" uk-icon="icon: trash"></span>
           </td>
         </tr>
         </tbody>
@@ -36,8 +36,12 @@
   </div>
 </div>
 
-<div id="user-form" uk-modal>
+<!--<div id="create-user-form" uk-modal>
   <user-form></user-form>
+</div>-->
+
+<div id="edit-user-form" uk-modal>
+  <user-form *ngIf="editingUser" [user]="editingUser"></user-form>
 </div>
 
 <div id="register-popup" uk-modal>
