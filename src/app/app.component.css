@@ -1,0 +1,10 @@
+.project-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.project-container .header {
+  height: min-content;
+}

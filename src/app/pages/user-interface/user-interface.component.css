@@ -1,0 +1,60 @@
+.user-interface .user-title {
+  font-size: 44px;
+  color: #FFFFFF;
+}
+
+.user-interface .custom-input {
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  width: 223px;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 0 20px;
+  height: 52px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-interface .custom-input:hover {
+  background: var(--blue);
+}
+
+.user-interface .uk-form-icon {
+  color: #fff;
+}
+
+.user-interface .first-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 190px;
+  align-items: center;
+}
+
+.user-interface .user-table {
+  background: var(--black);
+  font-weight: bold;
+  color: var(--black);
+}
+
+.user-interface .user-table thead {
+  background: var(--black);
+  text-transform: none !important;
+}
+
+.user-interface .user-table tbody {
+  background: var(--white);
+  text-transform: none !important;
+}
+
+.user-interface .user-table tbody td {
+  border-right: 2px solid white;
+}
+
+.user-interface .user-table thead th {
+  text-transform: none;
+  color: #fff;
+}

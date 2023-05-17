@@ -1,0 +1,57 @@
+<div class="uk-position-center user-interface">
+  <div class="">
+    <section class="first-container">
+      <span class="uk-text-bold user-title">Cadastro de Pessoas</span>
+      <div class="uk-margin">
+        <button class="uk-button uk-button-default custom-input uk-text-small" uk-toggle="target: #user-form" type="button">
+          Novo Cadastro
+          <span uk-icon="icon: arrow-right; ratio: 2"></span>
+        </button>
+      </div>
+    </section>
+    <section>
+      <table class="uk-table uk-table-divider user-table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Data de nascimento</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.birthDate | date: 'dd/MM/yyyy'}}</td>
+          <td>
+            <span (click)="edit(user)" uk-icon="icon: pencil"></span>
+            <span (click)="delete(user.id)" uk-icon="icon: trash"></span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+
+<div id="user-form" uk-modal>
+  <user-form></user-form>
+</div>
+
+<div id="register-popup" uk-modal>
+  <popup text="Cadastro criado com sucesso!"></popup>
+</div>
+
+<div id="edit-popup" uk-modal>
+  <popup text="Cadastro editado  com sucesso!"></popup>
+</div>
+
+<div id="delete-popup" uk-modal>
+  <popup text="Cadastro excluído com sucesso!"></popup>
+</div>
+
+<div id="delete-confirmation-popup" uk-modal>
+  <popup text="Excluir Cadastro!"></popup>
+</div>
