@@ -28,8 +28,8 @@ export class UsersService {
     );
   }
 
-  update(user: User): Observable<User> {
-    return this.http.patch<User>(`${this.url}/persons/${user.id}`, user).pipe(
+  update(user: User, userId: number): Observable<User> {
+    return this.http.patch<User>(`${this.url}/persons/${userId}`, user).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))
     );
