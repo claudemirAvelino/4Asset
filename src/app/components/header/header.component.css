@@ -1,0 +1,15 @@
+.container {
+  background-color: var(--black);
+  height: 127px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+}
+
+.container svg {
+  height: 43px;
+}
+
+
