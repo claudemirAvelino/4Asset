@@ -15,6 +15,7 @@ export class UserInterfaceComponent implements OnInit, OnDestroy{
 
   users: User[] = [];
   editingUser: User | null = null;
+  creatingUser: boolean | null = null;
   subscription!: Subscription;
   userIdDeleting: number | null = null;
 
@@ -26,7 +27,7 @@ export class UserInterfaceComponent implements OnInit, OnDestroy{
 
     EventService.get('modalClosed').subscribe((action) => {
       if (action === 'created') {
-        this.editingUser = null;
+        this.creatingUser = null;
         UIkit.modal('#register-popup').show()
       }
       if (action === 'edited') {
@@ -42,6 +43,7 @@ export class UserInterfaceComponent implements OnInit, OnDestroy{
     EventService.get('ConfirmPopup').subscribe((value) => {
       if (value)
         this.userService.delete(this.userIdDeleting).subscribe(() => {
+          UIkit.modal('#delete-popup').show()
           this.loadUsers();
         })
     })

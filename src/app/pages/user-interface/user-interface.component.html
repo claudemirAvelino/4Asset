@@ -3,7 +3,7 @@
     <section class="first-container">
       <span class="uk-text-bold user-title">Cadastro de Pessoas</span>
       <div class="uk-margin">
-        <button class="uk-button uk-button-default custom-input uk-text-small" uk-toggle="target: #create-user-form" type="button">
+        <button class="uk-button uk-button-default custom-input uk-text-small" uk-toggle="target: #create-user-form" type="button" (click)="creatingUser = true">
           Novo Cadastro
           <span uk-icon="icon: arrow-right; ratio: 2"></span>
         </button>
@@ -36,9 +36,9 @@
   </div>
 </div>
 
-<!--<div id="create-user-form" uk-modal>
-  <user-form></user-form>
-</div>-->
+<div id="create-user-form" uk-modal>
+  <user-form *ngIf="creatingUser"></user-form>
+</div>
 
 <div id="edit-user-form" uk-modal>
   <user-form *ngIf="editingUser" [user]="editingUser"></user-form>

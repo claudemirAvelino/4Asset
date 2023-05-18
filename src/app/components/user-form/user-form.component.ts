@@ -23,6 +23,7 @@ export class UserFormComponent implements OnInit {
   }
 
   close() {
+    this.user = null;
     EventService.get('modalClosed').emit('close');
   }
 
@@ -34,11 +35,13 @@ export class UserFormComponent implements OnInit {
       let userId = user.id;
       delete user.id;
       this.userService.update(user, userId).subscribe(() => {
+        this.user = null;
         EventService.get('modalClosed').emit('edited');
       })
     } else {
       delete user.id;
       this.userService.create(user).subscribe(() => {
+        this.user = null;
         EventService.get('modalClosed').emit('created');
       })
     }
